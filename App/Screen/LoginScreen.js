@@ -30,7 +30,7 @@ export default function LoginScreen() {
   
   return (
     <View style={{display:'flex', alignItems:'center'}}>
-      <Image source={loginscreen} style={{width:250, height:500,objectFit:'contain',marginTop:30}}/>
+      <Image source={loginscreen} style={{width:250, height:500,objectFit:'contain',marginTop:10}}/>
       <View style={{
         height:400,
         backgroundColor:Colors.PRIMARY,
