@@ -8,11 +8,14 @@ export default function HomeScreen() {
   return (
     <View>
       <View
-        style={{ backgroundColor: Colors.PRIMARY, height: 250, padding: 15 }}>
+        style={{ backgroundColor: Colors.PRIMARY, height: 200, padding: 15 }}>
         <Header />
       </View>
-      <View>
-        <CourseList level={"Basic"} />
+      <View style={{ padding: 20 }}>
+        <View style={{ marginTop: -70 }}>
+          <CourseList level={"Basic"} />
+        </View>
+        <CourseList level={"Advance"} />
       </View>
     </View>
   );
