@@ -36,7 +36,7 @@ export default function Header() {
             paddingRight: 5,
             display: "flex",
             flexDirection: "row",
-            marginTop: 14,
+            marginTop: 30,
             justifyContent: "space-between",
             borderRadius: 99,
           }}>
