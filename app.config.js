@@ -1,11 +1,11 @@
 module.exports = {
   expo: {
-    scheme: "E_learning_management",
+    scheme: "MyApp",
     extra: {
       clerkPublishableKey: process.env.CLERK_PUBLISHABLE_KEY,
       masterurl: process.env.HYGRAPH_API_URL,
       eas: {
-        projectId: process.env.PROJECTID,
+        projectId: "26c2b31a-ac74-454d-9c73-e93be0dbb3cf",
       },
     },
     android: {
