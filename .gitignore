@@ -17,6 +17,7 @@ web-build/
 *.mobileprovision
 .env
 eas.json
+eas
 # Metro
 .metro-health-check*
 

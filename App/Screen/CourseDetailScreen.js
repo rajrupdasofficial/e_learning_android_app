@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import React, { useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -11,15 +11,21 @@ export default function CourseDetailScreen() {
   useEffect(() => {}, [params.course]);
   return (
     params.course && (
-      <View>
-        <TouchableOpacity onPress={() => navigate.goBack()}>
-          <Ionicons name="arrow-back-circle-outline" size={40} color="black" />
-        </TouchableOpacity>
-        <DetailSection course={params.course} />
+      <ScrollView>
         <View>
-          <ChapterSection chapterList={params.course.chapters} />
+          <TouchableOpacity onPress={() => navigate.goBack()}>
+            <Ionicons
+              name="arrow-back-circle-outline"
+              size={40}
+              color="black"
+            />
+          </TouchableOpacity>
+          <DetailSection course={params.course} />
+          <View>
+            <ChapterSection chapterList={params.course.chapters} />
+          </View>
         </View>
-      </View>
+      </ScrollView>
     )
   );
 }
