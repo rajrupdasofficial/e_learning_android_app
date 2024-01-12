@@ -15,7 +15,9 @@ web-build/
 *.p12
 *.key
 *.mobileprovision
-
+.env
+eas.json
+eas
 # Metro
 .metro-health-check*
 
@@ -33,3 +35,5 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+#google service
+google-services.json
