@@ -1,23 +1,22 @@
 import { View, Text, Image, StyleSheet, TextInput } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 // import { useUser } from "@clerk/clerk-expo";
 import Colors from "../../Utils/Colors";
 import Coin from "../../../assets/images/coin.png";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function Header() {
-  // const { isLoaded, isSignedin, user } = useUser();
+export default function Header({ userInfo }) {
   return (
     <View>
       <View style={[{ justifyContent: "space-between" }, styles.rowStyle]}>
         <View style={styles.rowStyle}>
           <Image
-            source={{}}
+            source={{ uri: userInfo.userInfo?.user?.photo }}
             style={{ width: 50, height: 50, borderRadius: 99 }}
           />
           <View>
             <Text style={{ color: Colors.WHITE }}>Welcome,</Text>
-            <Text style={styles.mainText}>default</Text>
+            <Text style={styles.mainText}>{userInfo.userInfo?.user?.name}</Text>
           </View>
         </View>
         <View style={styles.rowStyle}>

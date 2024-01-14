@@ -8,7 +8,8 @@ import { MaterialIcons } from "@expo/vector-icons";
 import HomeScreenNavigation from "./HomeScreenNavigation/HomeScreenNavigation";
 const Tab = createBottomTabNavigator();
 
-export default function TabsNavigation() {
+export default function TabsNavigation({ userInfo }) {
+  // console.log("tab navigation", userInfo);
   return (
     <Tab.Navigator
       screenOptions={{
@@ -16,7 +17,7 @@ export default function TabsNavigation() {
       }}>
       <Tab.Screen
         name="Home"
-        component={HomeScreenNavigation}
+        children={() => <HomeScreenNavigation userInfo={userInfo} />}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={24} color="black" />
@@ -25,7 +26,7 @@ export default function TabsNavigation() {
       />
       <Tab.Screen
         name="My Course"
-        component={MyCourse}
+        children={() => <MyCourse userInfo={userInfo} />}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="bookmarks" size={24} color="black" />
@@ -34,7 +35,8 @@ export default function TabsNavigation() {
       />
       <Tab.Screen
         name="Leader Board"
-        component={LeaderBoard}
+        // component={LeaderBoard}
+        children={() => <LeaderBoard userInfo={userInfo} />}
         options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialIcons name="leaderboard" size={24} color="black" />
@@ -43,7 +45,8 @@ export default function TabsNavigation() {
       />
       <Tab.Screen
         name="Profile"
-        component={Profile}
+        // component={Profile}
+        children={() => <Profile userInfo={userInfo} />}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-circle-outline" size={24} color="black" />
