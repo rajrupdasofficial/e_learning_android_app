@@ -10,7 +10,6 @@ import {
 import loginscreen from "./assets/images/book.jpg";
 import Colors from "./App/Utils/Colors";
 import { NavigationContainer } from "@react-navigation/native";
-// import Constants from "expo-constants";
 import TabsNavigation from "./App/Navigations/TabNavigation";
 import { useEffect, useState } from "react";
 import {
@@ -18,6 +17,9 @@ import {
   GoogleSigninButton,
 } from "@react-native-google-signin/google-signin";
 import LoginScreen from "./App/Screen/LoginScreen";
+import Constants from "expo-constants";
+
+const webClientId = Constants.expoConfig.extra.webClientId;
 
 export default function App() {
   const [error, setError] = useState();
@@ -25,8 +27,7 @@ export default function App() {
 
   useEffect(() => {
     GoogleSignin.configure({
-      webClientId:
-        "274745835394-cm7f2iui82l4fk1cmtlcecofd501pq20.apps.googleusercontent.com",
+      webClientId: webClientId,
     });
   });
 
