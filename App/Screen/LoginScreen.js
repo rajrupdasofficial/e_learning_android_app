@@ -2,16 +2,26 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import loginscreen from "../../assets/images/book.jpg";
 import googleicon from "../../assets/images/google.png";
+import { useEffect, useState } from "react";
 import Colors from "../Utils/Colors";
-import * as WebBrowser from "expo-web-browser";
-// import { useWarmUpBrowser } from "../../hooks/warmUpBrowser";
-// import { useOAuth } from "@clerk/clerk-expo";
-
-// WebBrowser.maybeCompleteAuthSession();
+import {
+  GoogleSignin,
+  GoogleSigninButton,
+} from "@react-native-google-signin/google-signin";
 
 export default function LoginScreen() {
-  const onPress = React.useCallback(async () => {}, []);
-
+  const [error, setError] = useState();
+  const [userInfo, setUserInfo] = useState();
+  const signin = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const user = await GoogleSignin.signIn();
+      setUserInfo(user);
+      setError();
+    } catch (e) {
+      setError(e);
+    }
+  };
   return (
     <View style={{ display: "flex", alignItems: "center" }}>
       <Image
@@ -40,7 +50,12 @@ export default function LoginScreen() {
           A new door to coding world
         </Text>
         {/* clickable button */}
-        <TouchableOpacity
+        <GoogleSigninButton
+          size={GoogleSigninButton.Size.Standard}
+          color={GoogleSigninButton.Color.Dark}
+          onPress={signin}
+        />
+        {/* <TouchableOpacity
           onPress={onPress}
           style={{
             display: "flex",
@@ -57,7 +72,7 @@ export default function LoginScreen() {
           <Text style={{ fontSize: 20, color: Colors.PRIMARY }}>
             Login with Google
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );
